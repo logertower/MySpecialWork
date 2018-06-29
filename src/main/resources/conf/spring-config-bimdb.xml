@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+
+    <bean id="redisService" class="com.by.bimdb.service.impl.RedisSentinelServiceImpl">
+        <!-- 应用ID -->
+        <constructor-arg index="0" value="10044"/>
+        <!-- 集群ID -->
+        <constructor-arg index="1" value="24"/>
+        <!-- 哨兵host 多个用;号隔开 -->
+        <constructor-arg index="2" value="192.168.96.48:28001"/>
+        <!-- 主节点名 -->
+        <constructor-arg index="3" value="byMaster8001"/>
+        <!-- 单个应用中的连接池取连接时最大等待时间，单位：ms -->
+        <constructor-arg index="4" value="50"/>
+        <!-- 单个应用中的连接池最大连接数 -->
+        <constructor-arg index="5" value="100"/>
+        <!-- 单个应用中的连接池最小空闲数 -->
+        <constructor-arg index="6" value="1000"/>
+        <!-- 单个应用中的连接池最大空闲数 -->
+        <constructor-arg index="7" value="100"/>
+        <!-- 设置redis connect request response timeout 单位:ms -->
+        <constructor-arg index="8" value="2000"/>
+    </bean>
+</beans>
